@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chakrawyuha — Fantasy World</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preload" href="assets/cursor.gif">
+</head>
+
+<body>
+  <div class="custom-cursor site-wide">
+      <img src="assets/cursor.gif" alt="cursor" class="cursor-img" onerror="this.style.display='none'; 
+         this.closest('.custom-cursor').classList.add('cursor-missing'); 
+         document.body.style.cursor='none'">
+  </div>
+  <div class="allcontent">
+    <section class="header">
+      <div class="logo">
+        <img src="assets/chakrawyuha_logo.png" alt="Chakrawyuha Logo" class="logo-img">
+      </div>
+      <div class="buttons">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScy6JVSe9eQI5hFfcx5RZw4WXI3TrRtWmqYI9kfkgq2mJ4xdQ/viewform?usp=dialog" 
+           class="btn regi-btn">CL&ensp;- Register</a>
+      </div>
+    </section>
+
+    <section class="hero" id="hero">
+      <div class="scene" id="scene">
+        <img src="assets/castle.png" alt="Castle" class="castle">
+      </div>
+
+      <div class="content">
+        <p class="text">Welcome to Fantasy world of ...</p>
+        <img src="assets/chakrawyuha_font.svg" alt="CHAKRAWYUHA" class="main-logo">
+        <div class="buttons">
+          <a href="assets/brochure.pdf" class="btn">Brochure</a>
+          <a href="#" class="btn" id="openVideoBtn" data-video-src="">Watch This</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="video-modal" id="videoModal" aria-hidden="true">
+    <div class="video-backdrop" id="videoBackdrop"></div>
+    <div class="video-container" role="dialog" aria-modal="true" aria-label="Video player">
+      <video id="modalVideo" poster="assets/bg-placeholder.png" preload="metadata"></video>
+      <div class="video-info" id="videoInfo" aria-live="polite" hidden>Video not available yet</div>
+      <div class="video-controls" aria-hidden="false">
+        <button type="button" class="buttons btn" id="playPauseBtn" aria-label="Play/Pause">Play</button>
+        <button type="button" class="buttons btn" id="fullscreenBtn" aria-label="Fullscreen">⤢</button>
+        <button type="button" class="buttons btn" id="closeVideoBtn" aria-label="Close">✕</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
