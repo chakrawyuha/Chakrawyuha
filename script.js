@@ -35,8 +35,8 @@ if (img) {
   const maxOffset = 40;
 
   function onPointerMove(e) {
-    const nx = (e.clientX / window.innerWidth - 0.4) * 2;
-    const ny = (e.clientY / window.innerHeight - 0.4) * 2;
+    const nx = (e.clientX / window.innerWidth - 0.6) * 2;
+    const ny = (e.clientY / window.innerHeight - 0.6) * 2;
 
     targetX = -nx * maxOffset;
     targetY = -ny * maxOffset;
@@ -169,4 +169,5 @@ if (img) {
       video.load();
     }
   });
+
 })();
