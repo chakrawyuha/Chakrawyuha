@@ -322,9 +322,9 @@ body.hide-native-cursor { cursor: none; }
   }
   .castle { 
     width: 85vw;
-    right: -10%;
-    bottom: -1%;
-    transform: translate3d(var(--y), var(--x), 0);
+    right: -15px;
+    bottom: 20px;
+    transform: translate3d(0, 0, 0);
   }
   .video-container { width: 96vw; padding: 8px; }
   .video-controls { justify-content: space-between; }
