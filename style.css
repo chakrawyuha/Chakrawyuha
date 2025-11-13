@@ -324,6 +324,7 @@ body.hide-native-cursor { cursor: none; }
     width: 85vw;
     right: -10%;
     bottom: -1%;
+    transform: translate3d(var(--y), var(--x), 0);
   }
   .video-container { width: 96vw; padding: 8px; }
   .video-controls { justify-content: space-between; }
