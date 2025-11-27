@@ -82,7 +82,6 @@ body.hide-native-cursor { cursor: none; }
 }
 
 .logo-img {
-  /* Commit */
   width: 7vw;
   max-height: 200px;
   overflow: auto;
