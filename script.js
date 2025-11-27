@@ -1,17 +1,6 @@
 const cursor = document.querySelector('.custom-cursor.site-wide');
 const img = document.querySelector('.cursor-img');
 
-const bgMusic = document.getElementById("bgMusic");
-bgMusic.volume = 0.2;
-
-function playBgMusic() {
-  bgMusic.play().catch((e) => {
-      console.log("Autoplay prevented" + e);
-    });
-}
-
-playBgMusic();
-
 document.addEventListener('mouseenter', e => {
   cursor.style.display = 'block';
 });
@@ -35,7 +24,6 @@ if (img) {
     cursor.classList.add('cursor-missing');
   });
 }
-
 
 (function(){
   if (matchMedia('(hover: none), (pointer: coarse)').matches) return;
@@ -65,6 +53,20 @@ if (img) {
   }
   requestAnimationFrame(step);
 })();
+
+window.addEventListener("load", () => {
+    cursor.style.display = "block";
+});
+
+
+const bgMusic = document.getElementById("bgMusic");
+bgMusic.volume = 0.2;
+
+bgMusic.play().catch((e) => {});
+
+function playBgMusic() {
+  bgMusic.play().catch((e) => {});
+}
 
 ['click', 'keydown', 'touchstart'].forEach(evt =>
   document.addEventListener(evt, function onceToStartBg() {
@@ -148,7 +150,6 @@ if (img) {
     }
     });
     video.volume = 0.5;
-    if (!bgMusic.paused) bgMusic.pause();
     video.play();
   }
 
@@ -158,7 +159,7 @@ if (img) {
     try { video.pause(); } catch(e){}
     video.removeAttribute('src');
     video.load();
-    
+    playBgMusic();    
   }
 
   function togglePlay(){
@@ -200,10 +201,12 @@ if (img) {
     if (ev.key === ' ' || ev.key === 'Spacebar') { ev.preventDefault(); togglePlay(); }
   });
 
-  video.addEventListener('play', () => playBtn.textContent = 'Pause');
+  video.addEventListener('play', () => {
+    playBtn.textContent = 'Pause';
+    if(!bgMusic.pause()) bgMusic.pause();
+  });
   video.addEventListener('pause', () => playBtn.textContent = 'Play');
 
-  
 
   modal.addEventListener('transitionend', () => {
     if (!modal.classList.contains('open')) {
@@ -214,4 +217,3 @@ if (img) {
   });
 
 })();
-
