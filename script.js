@@ -111,12 +111,26 @@ if (img) {
     } else {
       video.removeAttribute('src');
       info.hidden = false;
-      info.textContent = 'Video will be available soon. Stay Tuned!';
+      info.textContent = 'Stay Tuned!';
       playBtn.disabled = true;
     }
     modal.classList.add('open');
     modal.setAttribute('aria-hidden','false');
     playBtn.focus();
+    document.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('open')) return;
+    if (e.key === "ArrowUp") {
+        e.preventDefault();
+        video.volume = Math.min(video.volume + 0.05, 1);
+    }
+      if (e.key === "ArrowDown") {
+        e.preventDefault();
+        video.volume = Math.max(video.volume - 0.05, 0);
+    }
+    });
+    video.volume = 0.5;
+    video.play();
+    
   }
 
   function closeModal(){
@@ -125,6 +139,7 @@ if (img) {
     try { video.pause(); } catch(e){}
     video.removeAttribute('src');
     video.load();
+    
   }
 
   function togglePlay(){
@@ -144,7 +159,10 @@ if (img) {
       document.exitFullscreen().catch(()=>{});
       return;
     }
-    if (elem.requestFullscreen) elem.requestFullscreen().catch(()=>{});
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen().catch(()=>{});
+      video.style.cursor = "auto";
+    }
   }
 
   openBtn.addEventListener('click', openModal);
@@ -162,6 +180,8 @@ if (img) {
   video.addEventListener('play', () => playBtn.textContent = 'Pause');
   video.addEventListener('pause', () => playBtn.textContent = 'Play');
 
+  
+
   modal.addEventListener('transitionend', () => {
     if (!modal.classList.contains('open')) {
       video.pause();
@@ -169,5 +189,6 @@ if (img) {
       video.load();
     }
   });
-
 })();
+
+
