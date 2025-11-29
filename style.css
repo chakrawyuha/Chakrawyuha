@@ -1,9 +1,3 @@
-#app {
-  height: calc(var(--vh) * 100);
-  min-height: calc(var(--vh) * 100);
-  height: 100dvh;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -340,6 +334,9 @@ body.hide-native-cursor { cursor: none; }
     transition: ease-in-out;
     filter: drop-shadow(0 0 9px rgba(133, 82, 16, 1));
     background:  rgba(9, 36, 51, 0.432);
+  }
+  .allcontent{
+    height: 94vh;
   }
   .insta-btn {
     padding: 14px 14px;
